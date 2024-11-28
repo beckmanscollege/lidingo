@@ -30,7 +30,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 1px solid #ccc;
       cursor: pointer;
       transition: transform 0.3s ease;
       background-color: var(--bg-color);
@@ -42,7 +41,7 @@
       font-weight: bold;
       grid-column: 2;
       grid-row: 2;
-      background-color: var(--bg-color);
+      background-color: #ffffff;
     }
 
     .cell model-viewer {
@@ -94,6 +93,23 @@
       border: none;
       cursor: pointer;
       font-size: 1.2em;
+    }
+
+    @media (max-width: 768px) {
+      .fullscreen {
+        flex-direction: column;
+      }
+
+      .model-container {
+        width: 100%;
+        height: 75%;
+      }
+
+      .text-container {
+        width: 100%;
+        height: 25%;
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -167,13 +183,13 @@
 
       // Randomize the color for the center cell
       const centerCell = document.querySelector('.cell.center');
-      centerCell.style.setProperty('--bg-color', colors[Math.floor(Math.random() * colors.length)]);
+      centerCell.style.setProperty('--bg-color', '#ffffff');
 
       // Add shuffled projects to the grid (skip the center cell)
       projects.forEach((project, index) => {
         const cell = document.createElement('div');
         cell.classList.add('cell');
-        cell.style.setProperty('--bg-color', colors[index]);
+        cell.style.setProperty('--bg-color', colors[Math.floor(Math.random() * colors.length)]);
         cell.setAttribute('data-title', project.title);
         cell.setAttribute('data-description', project.description);
 
