@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lidingö Infrastructure Proposals</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .cell {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      background-color: var(--bg-color);
+    }
+
+    .cell.center {
+      cursor: default;
+      font-size: 2em;
+      font-weight: bold;
+      grid-column: 2;
+      grid-row: 2;
+      background-color: var(--bg-color);
+    }
+
+    .cell model-viewer {
+      width: 80%;
+      height: 80%;
+    }
+
+    /* Fullscreen overlay */
+    .fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      overflow: hidden;
+    }
+
+    .model-container {
+      width: 50%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f5f5;
+      box-sizing: border-box;
+    }
+
+    .text-container {
+      width: 50%;
+      height: 100vh;
+      padding: 40px;
+      background: #ffffff;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid" id="grid">
+    <!-- Grid Cells with 3D Objects -->
+    <div class="cell center" data-index="4">
+      Lidingö
+    </div>
+  </div>
+
+  <div class="fullscreen" id="fullscreen" style="display: none;">
+    <button class="close-btn" id="closeBtn">&times;</button>
+    <div class="model-container" id="modelContainer"></div>
+    <div class="text-container">
+      <h2 id="fullscreenTitle">Title</h2>
+      <p id="fullscreenText">Description</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const projects = [
+        {
+          title: "Astrea Kulturhus",
+          description: "Astrea Kulturhus är en vision för ett nytt kulturellt centrum på Lidingö. Ett mötesplats för konst, musik och gemenskap, där invånare och besökare kan samlas för att utforska kreativa uttryck.",
+          model: "assets/Bell Flower.glb"
+        },
+        {
+          title: "Optiktornet",
+          description: "Optiktornet är ett utsiktstorn på Lidingö som ger besökare en fantastisk utsikt över ön och dess omgivningar. Tornet är designat för att skapa en symbol för framtidens Lidingö.",
+          model: "assets/Fall Tree.glb"
+        },
+        {
+          title: "Växtskåp",
+          description: "Växtskåp är ett initiativ för att skapa en grönare Lidingö genom innovativa odlingslösningar. Små växthus placeras på offentliga platser för att främja lokal matproduktion.",
+          model: "assets/Flower.glb"
+        },
+        {
+          title: "Tindra Graffitipark",
+          description: "Tindra Graffitipark är en plats för kreativa uttryck och gatukonst. Här får unga konstnärer möjlighet att skapa och visa upp sin konst i ett tillåtande och inspirerande miljö.",
+          model: "assets/Flower1.glb"
+        },
+        {
+          title: "Lidingöbron",
+          description: "Lidingöbron är en central del av infrastrukturen på Lidingö. Denna vision fokuserar på att modernisera bron för att göra den säkrare och mer miljövänlig.",
+          model: "assets/Tree.glb"
+        },
+        {
+          title: "Fountain Next Level",
+          description: "Fountain Next Level är en modern fontäninstallation som kombinerar vatten, ljus och konst för att skapa en visuell upplevelse på Lidingö.",
+          model: "assets/Tree2.glb"
+        },
+        {
+          title: "Konst på Lidingöbanan",
+          description: "Konst på Lidingöbanan är ett projekt som syftar till att försköna stationerna och tågen med konstverk som återspeglar Lidingös identitet.",
+          model: "assets/Tree3.glb"
+        },
+        {
+          title: "Vindarnas Tempel",
+          description: "Vindarnas Tempel är ett utrymme för reflektion och kontemplation, designat för att fånga väder och vind som en del av upplevelsen på Lidingö.",
+          model: "assets/tulip 3.glb"
+        }
+      ];
+
+      // Shuffle projects array
+      projects.sort(() => Math.random() - 0.5);
+
+      const grid = document.getElementById('grid');
+      const colors = ["#FFB6C1", "#ADD8E6", "#98FB98", "#FFD700", "#FFDEAD", "#AFEEEE", "#E6E6FA", "#FFE4E1"];
+
+      // Randomize the color for the center cell
+      const centerCell = document.querySelector('.cell.center');
+      centerCell.style.setProperty('--bg-color', colors[Math.floor(Math.random() * colors.length)]);
+
+      // Add shuffled projects to the grid (skip the center cell)
+      projects.forEach((project, index) => {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.style.setProperty('--bg-color', colors[index]);
+        cell.setAttribute('data-title', project.title);
+        cell.setAttribute('data-description', project.description);
+
+        const modelViewer = document.createElement('model-viewer');
+        modelViewer.setAttribute('src', project.model);
+        modelViewer.setAttribute('auto-rotate', '');
+        modelViewer.setAttribute('camera-controls', '');
+        modelViewer.style.width = '80%';
+        modelViewer.style.height = '80%';
+
+        cell.appendChild(modelViewer);
+        grid.appendChild(cell);
+      });
+    });
+
+    const fullscreen = document.getElementById('fullscreen');
+    const closeBtn = document.getElementById('closeBtn');
+    const modelContainer = document.getElementById('modelContainer');
+    const fullscreenTitle = document.getElementById('fullscreenTitle');
+    const fullscreenText = document.getElementById('fullscreenText');
+
+    // Handle click on grid cells
+    grid.addEventListener('click', (e) => {
+      const cell = e.target.closest('.cell');
+      if (cell && !cell.classList.contains('center')) {
+        const title = cell.getAttribute('data-title');
+        const description = cell.getAttribute('data-description');
+        const modelViewer = cell.querySelector('model-viewer');
+
+        fullscreenTitle.textContent = title;
+        fullscreenText.textContent = description;
+
+        // Clone the model-viewer element to maintain state
+        const newModelViewer = modelViewer.cloneNode(true);
+        newModelViewer.setAttribute('style', 'width: 100%; height: 100%;');
+        modelContainer.innerHTML = '';
+        modelContainer.appendChild(newModelViewer);
+
+        fullscreen.style.display = 'flex';
+      }
+    });
+
+    // Handle close button click
+    closeBtn.addEventListener('click', () => {
+      fullscreen.style.display = 'none';
+      modelContainer.innerHTML = '';
+    });
+  </script>
+</body>
+</html>
