@@ -39,6 +39,7 @@ body, html {
   .cell model-viewer {
     width: 80%;
     height: 80%;
+    transition: transform 0.3s ease;
     --poster-color: transparent;
   }
   
@@ -111,9 +112,8 @@ body, html {
       padding: 20px;
     }
   }
-  
+
   .cell:hover model-viewer {
     transform: scale(1.1);
-    transition: transform 0.3s ease;
   }
   
