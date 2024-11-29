@@ -98,9 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p>Vårt koncept är en bar och en social mötesplats vars utformning och funktion för samman platsens historiska kontext med dess nuvarande kontext. Temat rörelse har lett oss till att skapa en cykelbar med tillhörande barbord, för att bjuda in folk i rörelse att stanna upp för en kort stund.</p>
                     <p>Platsen är i dagsläget ett "mellanområde", den bjuder halvt in cyklister och fotgängare (bron är enbart till för cykel/gång) men ingen stannar faktiskt där, då platsen saknar funktion. Med baren och de nya cykelborden på plats så finns det en anledning och möjlighet för folk att enkelt stanna på vägen till något annat, eller ha platsen som en destination i sig.</p>
                     <p>Utformandet sker i olika medier. Skalmodellen (1:100) är gjord med laserskuren MDF, olika typer av papper, metallstänger och lera. Skalmodellen på barborden är i 1:10 och gjord av MDF. Kompletterande så har vi även gjort konceptrenderingar med hjälp av CAD och Blender.</p>
-                    <img src="assets/8/vindarnastempel1.png" />
-                    <img src="assets/8/vindarnastempel2.png" />
-                    <img src="assets/8/vindarnastempel3.png" />
+                    <img src="assets/8/vindarnastempel1.jpg" />
+                    <img src="assets/8/vindarnastempel2.jpg" />
+                    <img src="assets/8/vindarnastempel3.jpg" />
                 `,
         },
     ];
@@ -115,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     projects.forEach((project, index) => {
         const path = project.gid;
         const modelPath = `assets/${path}/model.glb`;
+        const posterPath = `assets/${path}/poster.jpg`;
         const environmentImagePath = `assets/${path}/environment.jpg`;
         const skyboxImagePath = `assets/${path}/skybox.jpg`;
 
@@ -124,7 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
         cell.setAttribute("data-title", project.title); // Use index to reference the project
 
         const modelViewer = document.createElement("model-viewer");
-        modelViewer.setAttribute("src", modelPath);
+        modelViewer.setAttribute("data-src", modelPath);
+        modelViewer.setAttribute("poster", posterPath);
         modelViewer.setAttribute("auto-rotate", true);
         modelViewer.setAttribute("preload", true);
         modelViewer.setAttribute("disable-pan", true);
@@ -157,6 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Replace the model-viewer in the fullscreen model container
             modelContainer.innerHTML = "";
             const modelViewer = cell.querySelector("model-viewer");
+            modelViewer.setAttribute("src", modelViewer.getAttribute("data-src"));
             //modelViewer.setAttribute("ar", true);
             //modelViewer.setAttribute("ar-modes", "scene-viewer quick-look");
             if (modelViewer) {
