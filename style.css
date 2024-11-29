@@ -47,7 +47,7 @@ html {
 
 .cell.center {
     cursor: default;
-    font-size: 1.2rem;
+    font-size: 1rem;
     grid-column: 2;
     grid-row: 2;
     text-align: center;
