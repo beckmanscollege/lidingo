@@ -129,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modelViewer.setAttribute("interaction-prompt", "none");
         modelViewer.setAttribute("shadow-intensity", "2");
         modelViewer.setAttribute("skybox-height", "1.5m");
+        modelViewer.setAttribute("disable-quick-look",true);
         // modelViewer.setAttribute("skybox-image", skyboxImagePath);
         modelViewer.setAttribute("style", "--poster-color: transparent;");
 
