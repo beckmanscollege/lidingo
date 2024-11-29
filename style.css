@@ -35,9 +35,17 @@ html {
     transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth interaction effects */
 }
 
+
+
+model-viewer {
+  --progress-bar-color: none;
+  --progress-bar-height: 0px;
+  }
+
+
 .cell:not(.center) {
     /* Subtle grayscale effect for non-center cells */
-    filter: grayscale(0.8) brightness(0.9);
+    /* filter: grayscale(0.8) brightness(0.9); */
 }
 
 .cell.center {

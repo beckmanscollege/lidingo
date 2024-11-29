@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 `,
         },
         {
-
             gid: 3,
             title: "Viveka",
             lon: 18.114561,
@@ -64,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             gid: 4,
             title: "Tindra",
-            lon: 18.135770,
+            lon: 18.13577,
             lat: 59.364163,
             html: `
                     <p>I det övergivna och nedklottrade Tindrahusets plats ska vi upprätta Tindra graffitipark. Parken ska vara ett levande galleri i konstant förändring, som hyllar Tindrahusets nuvarande roll som canvas för klotter. Projektet innefattar även en informationsskylt samt en hemsida där graffitin dokumenteras.</p>
@@ -158,6 +157,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const fullscreenContent = document.getElementById("fullscreenContent");
     const modelContainer = document.getElementById("modelContainer");
 
+    function isDesktop() {
+        return !/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone|webOS/i.test(
+            navigator.userAgent
+        );
+    }
+
     // Generate grid dynamically
     projects.forEach((project, index) => {
         const path = project.gid;
@@ -172,13 +177,17 @@ document.addEventListener("DOMContentLoaded", () => {
         cell.setAttribute("data-title", project.title); // Use index to reference the project
 
         const modelViewer = document.createElement("model-viewer");
-        modelViewer.setAttribute("data-src", modelPath);
-        modelViewer.setAttribute("poster", posterPath);
+       
+        if (isDesktop()) {
+            modelViewer.setAttribute("src", modelPath);
+        } else {
+            modelViewer.setAttribute("data-src", modelPath);
+            modelViewer.setAttribute("poster", posterPath);
+        }
         modelViewer.setAttribute("auto-rotate", true);
         modelViewer.setAttribute("preload", true);
         modelViewer.setAttribute("disable-pan", true);
-        modelViewer.setAttribute("camera-controls", true);
-        // modelViewer.setAttribute("max-camera-orbit", "auto 90deg auto");
+        modelViewer.setAttribute("max-camera-orbit", "auto 90deg auto");
         // modelViewer.setAttribute("environment-image", environmentImagePath);
         modelViewer.setAttribute("interaction-prompt", "none");
         modelViewer.setAttribute("shadow-intensity", "2");
@@ -219,17 +228,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
             fullscreen.style.display = "flex";
             fullscreenTitle.textContent = project.title || "";
-            fullscreenContent.innerHTML = `<a href="${generateGoogleMapsLink(project.lon, project.lat)}" target="_blank">${project.lon}, ${project.lat}</a>`
+            fullscreenContent.innerHTML = `<a href="${generateGoogleMapsLink(
+                project.lon,
+                project.lat
+            )}" target="_blank">${project.lon}, ${project.lat}</a>`;
             fullscreenContent.innerHTML += project.html || "";
 
             // Replace the model-viewer in the fullscreen model container
             modelContainer.innerHTML = "";
             const modelViewer = cell.querySelector("model-viewer");
-            modelViewer.setAttribute("poster", "");
-            modelViewer.setAttribute(
-                "src",
-                modelViewer.getAttribute("data-src")
-            );
+            if (isDesktop()) {
+            } else {
+                modelViewer.setAttribute("poster", "");
+                modelViewer.setAttribute(
+                    "src",
+                    modelViewer.getAttribute("data-src")
+                );
+            }
+            modelViewer.setAttribute("camera-controls", true);
             modelViewer.setAttribute("ar", true);
             modelViewer.setAttribute("ar-modes", "scene-viewer quick-look");
             if (modelViewer) {
