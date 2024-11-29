@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modelViewer.setAttribute("disable-pan", true);
         modelViewer.setAttribute("camera-controls", true);
         modelViewer.setAttribute("max-camera-orbit", "auto 90deg auto");
-        //modelViewer.setAttribute("environment-image", environmentImagePath);
+        modelViewer.setAttribute("environment-image", environmentImagePath);
         modelViewer.setAttribute("interaction-prompt", "none");
         modelViewer.setAttribute("shadow-intensity", "2");
         modelViewer.setAttribute("skybox-height", "1.5m");
