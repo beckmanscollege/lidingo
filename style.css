@@ -35,13 +35,10 @@ html {
     transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth interaction effects */
 }
 
-
-
-model-viewer {
+/* model-viewer {
   --progress-bar-color: none;
   --progress-bar-height: 0px;
-  }
-
+  } */
 
 .cell:not(.center) {
     /* Subtle grayscale effect for non-center cells */
@@ -92,7 +89,7 @@ model-viewer {
 }
 
 #fullscreen h1#fullscreenTitle {
-  z-index:9999;
+    z-index: 9999;
     position: absolute;
     font-size: 2rem;
     margin: 20px;
@@ -102,7 +99,7 @@ model-viewer {
 }
 
 #fullscreen h1#fullscreenTitle:hover {
-  cursor: w-resize;
+    cursor: w-resize;
 }
 
 .fullscreen-layout {
@@ -130,7 +127,7 @@ model-viewer {
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     line-height: 1.6; /* Improved readability */
-    background-color:#fafafa;
+    background-color: #fafafa;
 }
 
 .text-container img {
