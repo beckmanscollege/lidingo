@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             title: "Astrea Kulturhus",
             gid: 1,
+            flip: true,
             html: `
                     <p>Astrea kulturhus byggs ovanpå en stor parkeringsplats mitt i centrum, där hantverk, kreativitet och möten är i fokus. Här finns verkstäder med specialutrustning för keramik, screentryck och musikstudio, samt ett café och utrymme för evenemang som marknader och spelningar.</p>
                     <p>Lidingö saknar en kulturell samlingsplats för alla kreativa och skapande människor på ön. Vi ville skapa en plats som erbjuder just detta, med ett specifikt fokus på unga men också den breda allmänheten. Astrea har ett utbud av verkstäder som möjliggör konstnärligt skapande. Ett nytt kulturhus tror vi  skulle stärka gemenskapen, inkludera fler och berika kulturlivet på ön.</p>
@@ -160,6 +161,10 @@ document.addEventListener("DOMContentLoaded", () => {
         // modelViewer.setAttribute("skybox-image", skyboxImagePath);
         modelViewer.setAttribute("style", "--poster-color: transparent;");
 
+        if (project.flip) {
+            //modelViewer.setAttribute("orientation", "0 45deg 90deg");
+        }
+
         // Access the shadow root
         const shadowRoot = modelViewer.shadowRoot;
 
@@ -179,7 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.addEventListener("click", (e) => {
         const cell = e.target.closest(".cell");
         if (cell) {
-            e;
             const index = parseInt(cell.getAttribute("data-index"), 10);
             const project = projects[index];
 
@@ -190,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Replace the model-viewer in the fullscreen model container
             modelContainer.innerHTML = "";
             const modelViewer = cell.querySelector("model-viewer");
-        modelViewer.setAttribute("poster", "");
+            modelViewer.setAttribute("poster", "");
             modelViewer.setAttribute(
                 "src",
                 modelViewer.getAttribute("data-src")
