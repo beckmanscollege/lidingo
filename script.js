@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Optiktornet MinusEtt",
             gid: 2,
             html: `
+                    <p>Optiktornet MinusEtt är en mötesplats för Lidingös konst- och designskolor i det övergivna Optiktornet och bergrummet i AGA. Här kan studenter och allmänhet samlas för utställningar och evenemang, vilket ger Lidingö en ny, spännande plats som lockar en ung, kreativ målgrupp.</p>
+                    <p>Lidingö har länge varit känt som en exklusiv, anrik och naturnära plats för familjer och äldre, men saknar en tydlig mötesplats för yngre konstnärer och designers. Trots att flera konst- och designskolor finns på ön, är kontakten mellan studenterna bristfällig. Vi vill därför skapa en gemensam plats där de kan samlas, knyta kontakter och visa upp sina projekt.</p>
+                    <p>Optiktornet MinusEtt ägs gemensamt av Lidingös konst- och designskolor och drivs av skolornas alumner. Skandia Fastigheter och Lidingö Kommun har bidragit med lokaler för att främja konst, attrahera yngre målgrupper och stärka sitt varumärke. Optiktornet och bergrummet renoveras för att rymma en bar och säkra utställningslokaler. Verksamheten finansieras genom försäljning, sponsorer och bidrag. Skolorna ansvarar för lokalerna, alumner för driften, och studenter arrangerar evenemang. Via Optiktornet MinusEtt's hemsida kan allmänheten följa aktiviteter och studenter boka utställningar.</p>
                     <p><strong>Credits:</strong>Lina Johansson, Olle Ljung, Edda Eliasson</p>
                 `,
         },
@@ -27,6 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "",
             gid: 3,
             html: `
+                    <p>På gränsens mellan norra och södra Sticklinge på Lidingö lanseras ett projekt för att antingen stärka grannskapets gemenskap - eller belysa en bristande sammanhållning i området.</p>
+                    <p>"Ryktet om Lidingöborna som självupptagna översittare har orsakat både osämja och dålig självbild bland Lidingöborna själva, och för att öns rykte ska kunna räddas så måste det ske en förändring inifrån och ut.</p>
+                    <p>"En dag så dyker det upp ett litet, portabelt växthus mitt i grannskapet. Det finns ingen tydlig avsändare eller en uttalad person som ska sköta om den. Ansvaret att hålla växten vid liv faller på samhället - för att växten ska må bra och skötas om så kommer Lidingöborna behöva samarbeta. Projektet skulle kunna se ut på olika sätt, antingen kan växthuset färdas mellan olika områden på Lidingö som en stafett, och bli ett gemensamt ansvar för hela ön, eller så kan respektive område få en egen växt.</p>
                     <p><strong>Credits:</strong>Emma Bjelke Blomqvist, Wilmer Norrby, Emmy Seeger</p>
                 `,
         },
@@ -89,10 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
             gid: 8,
             html: `
                     <h2>Koncept</h2>
-                    <p>Med utgångspunkt från Lidingös historia och aktiviteter vill vi lysa upp varje station längst med lidingöbanan med konst. </p>
-                    <h2>Problemformulering</h2>
-                    <p>Tunnelbanan är världens längsta konstutställning som lockar många turister och besökare, konsten är väldigt uppskattad av de som åker tunnelbanan och bidrar med kulturella intryck. Motivationen till tunnelbanans konst var att alla har rätt till att se konst och det tycker vi lidingöborna också har. Genom att skapa konst längst med lidingöbanan så kanske man får folk att vilja åka ut till Lidingö för att se på den, och världens längsta konstustställning blir ännu längre. Vi tror även att de som bor på Lidingö och åker lidingöbanan varje dag kommer uppskatta något som lyser upp och bryter av från omgivningen.</p>
-                    <p>Våran modell är byggd av MDF som vi har målat och spacklat för att få en organisk textur. Vi har byggt en minimodell av hur ett konstverk på Kottla Station hade kunnat se ut.</p>
+                    <p>Vårt koncept är en bar och en social mötesplats vars utformning och funktion för samman platsens historiska kontext med dess nuvarande kontext. Temat rörelse har lett oss till att skapa en cykelbar med tillhörande barbord, för att bjuda in folk i rörelse att stanna upp för en kort stund.</p>
+                    <p>Platsen är i dagsläget ett "mellanområde", den bjuder halvt in cyklister och fotgängare (bron är enbart till för cykel/gång) men ingen stannar faktiskt där, då platsen saknar funktion. Med baren och de nya cykelborden på plats så finns det en anledning och möjlighet för folk att enkelt stanna på vägen till något annat, eller ha platsen som en destination i sig.</p>
+                    <p>Utformandet sker i olika medier. Skalmodellen (1:100) är gjord med laserskuren MDF, olika typer av papper, metallstänger och lera. Skalmodellen på barborden är i 1:10 och gjord av MDF. Kompletterande så har vi även gjort konceptrenderingar med hjälp av CAD och Blender.</p>
                     <img src="assets/8/vindarnastempel1.png" />
                     <img src="assets/8/vindarnastempel2.png" />
                     <img src="assets/8/vindarnastempel3.png" />
