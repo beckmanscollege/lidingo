@@ -1,119 +1,131 @@
 body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    width: 100vw;
-    height: 100vh;
-  }
-  
-  .cell {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    background-color: var(--bg-color);
-  }
-  
-  .cell.center {
-    cursor: default;
-    font-size: 2em;
-    font-weight: bold;
-    grid-column: 2;
-    grid-row: 2;
-    background-color: #ffffff;
-  }
-  
-  .cell model-viewer {
-    width: 80%;
-    height: 80%;
-    transition: transform 0.3s ease;
-    --poster-color: transparent;
-  }
-  
-  /* Fullscreen overlay */
-  .fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    overflow: hidden;
-  }
-  
-  .floating-title {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 15px;
-    background: #333;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.5em;
-    z-index: 101;
-  }
-  
-  .model-container {
-    width: 50%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    box-sizing: border-box;
-  }
-  
-  .text-container {
-    width: 50%;
-    padding: 40px;
-    background: #ffffff;
-    box-sizing: border-box;
-    overflow-y: auto;
-  }
-  
-  .text-container img {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .fullscreen {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 100vw;
+  height: 100vh;
+  gap: 0; /* Ensure no gaps between grid items */
+}
+
+.cell {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--bg-color, #f0f0f0);
+  overflow: hidden; /* Hide the zoomed-in content outside the cell */
+}
+
+.cell.center {
+  cursor: default;
+  font-size: 2em;
+  font-weight: bold;
+  grid-column: 2;
+  grid-row: 2;
+  background-color: #ffffff;
+}
+
+.cell model-viewer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the content scales proportionally */
+  transition: transform 0.3s ease; /* Smooth zoom-in effect */
+}
+
+.cell:hover model-viewer {
+  transform: scale(1.2); /* Zoom in on hover */
+}
+
+#fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+#fullscreen h1#fullscreenTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.fullscreen-layout {
+  display: flex;
+  width: 100%;
+  height: calc(100% - 80px); /* Account for title height */
+  box-sizing: border-box;
+}
+
+.model-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.text-container {
+  width: 50%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  color: #555;
+  border-left: 1px solid #ddd;
+}
+
+.text-container img {
+  width: 100%;
+  height: auto;
+}
+
+.text-container img:not(:first-child){
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  #fullscreen {
       flex-direction: column;
-    }
-  
-    .model-container {
-      width: 100%;
-      height: 50%;
-    }
-  
-    .text-container {
-      width: 100%;
-      height: 50%;
-      padding: 20px;
-    }
   }
 
-  .cell:hover model-viewer {
-    transform: scale(1.1);
+  .fullscreen-layout {
+      flex-direction: column;
+      height: calc(100% - 80px);
   }
-  
+
+  .model-container,
+  .text-container {
+      width: 100%;
+      height: 50%;
+  }
+
+  .text-container {
+      border-left: none;
+      border-top: 1px solid #ddd;
+  }
+}

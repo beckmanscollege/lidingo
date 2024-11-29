@@ -6,9 +6,8 @@
         <title>Lidingö: The Next Generation</title>
         <script
             type="module"
-            src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+            src="model-viewer.min.js"
         ></script>
-        <script src="https://assets.website-files.com/5c013e2442f37ff004567ee6/5c17c0247910f0e6fe21dde9_model-viewer.min.js.txt"></script>
 
         <link rel="stylesheet" href="style.css" />
     </head>
@@ -17,21 +16,14 @@
             <!-- Grid Cells with 3D Objects -->
             <div class="cell center" data-index="4">Lidingö</div>
         </div>
-
-        <div class="fullscreen" id="fullscreen" style="display: none">
-            <div class="floating-title" id="floatingTitle">Lidingö</div>
-            <div class="model-container" id="modelContainer"></div>
-            <div class="text-container">
-                <h2 id="fullscreenTitle">Title</h2>
-                <p id="fullscreenText">Description</p>
-                <img
-                    id="fullscreenImage"
-                    src=""
-                    alt="Project Image"
-                    style="display: none"
-                />
-                <p id="creditsText">Credits</p>
-              </div>
+        <div id="fullscreen" style="display: none;">
+            <h1 id="fullscreenTitle"></h1>
+            <div class="fullscreen-layout">
+                <div id="modelContainer" class="model-container"></div>
+                <div class="text-container">
+                    <div id="fullscreenContent"></div>
+                </div>
+            </div>
         </div>
 
         <script src="script.js"></script>

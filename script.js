@@ -2,154 +2,185 @@ document.addEventListener("DOMContentLoaded", () => {
     const projects = [
         {
             title: "Astrea Kulturhus",
-            description:
-                "Astrea Kulturhus är en vision för ett nytt kulturellt centrum på Lidingö. Ett mötesplats för konst, musik och gemenskap, där invånare och besökare kan samlas för att utforska kreativa uttryck.",
-            model: "assets/Bell Flower.glb",
-            image: "https://via.placeholder.com/600x400",
-            credits: "Iris Berglund,Stephanie Holmén,Olle Svensson,Maria Mörner",
+            gid: 1,
+            html: `
+                    <p>Astrea kulturhus byggs ovanpå en stor parkeringsplats mitt i centrum, där hantverk, kreativitet och möten är i fokus. Här finns verkstäder med specialutrustning för keramik, screentryck och musikstudio, samt ett café och utrymme för evenemang som marknader och spelningar.</p>
+                    <p>Lidingö saknar en kulturell samlingsplats för alla kreativa och skapande människor på ön. Vi ville skapa en plats som erbjuder just detta, med ett specifikt fokus på unga men också den breda allmänheten. Astrea har ett utbud av verkstäder som möjliggör konstnärligt skapande. Ett nytt kulturhus tror vi  skulle stärka gemenskapen, inkludera fler och berika kulturlivet på ön.</p>
+                    <p>Modellen är byggd av laserskurna MDF skivor. Vi har sedan målat och spraymålat allt. Som en del av presentationen presenterar vi även materialprover samt skyltsystem i förminskad skala. 4 olika affischer har formgivigts för verksamheten som komminicerar Astreas utbud. Vi har även 3d-scannat modellen för att kunna presentera den digitalt.</p>
+                    <img src="assets/1/astreakulturhus1.jpg" />
+                    <img src="assets/1/astreakulturhus2.jpg" />
+                    <img src="assets/1/astreakulturhus3.jpg" />
+                    <img src="assets/1/astreakulturhus4.jpg" />
+                    <img src="assets/1/astreakulturhus5.jpg" />
+                    <img src="assets/1/astreakulturhus6.jpg" /
+                    <p><strong>Credits:</strong>Iris Berglund, Stephanie Holmén, Olle Svensson</p>
+                `,
         },
         {
-            title: "Optiktornet",
-            description:
-                "Optiktornet är ett utsiktstorn på Lidingö som ger besökare en fantastisk utsikt över ön och dess omgivningar. Tornet är designat för att skapa en symbol för framtidens Lidingö.",
-            model: "assets/Fall Tree.glb",
-            image: "https://via.placeholder.com/600x400",
-            credits: "Lina Johansson, Olle Ljung, Edda Eliasson",
+            title: "Optiktornet MinusEtt",
+            gid: 2,
+            html: `
+                    <p><strong>Credits:</strong>Lina Johansson, Olle Ljung, Edda Eliasson</p>
+                `,
         },
         {
-            title: "Växtskåp",
-            description:
-                "Växtskåp är ett initiativ för att skapa en grönare Lidingö genom innovativa odlingslösningar. Små växthus placeras på offentliga platser för att främja lokal matproduktion.",
-            model: "assets/Flower.glb",
-            image: "https://via.placeholder.com/600x400",
-            credits: "Emma Bjelke Blomqvist, Wilmer Norrby, Emmy Seeger, Sara Matstoms",
+            title: "",
+            gid: 3,
+            html: `
+                    <p><strong>Credits:</strong>Emma Bjelke Blomqvist, Wilmer Norrby, Emmy Seeger</p>
+                `,
         },
         {
-            title: "Tindra Graffitipark",
-            description:
-                "Tindra Graffitipark är en plats för kreativa uttryck och gatukonst. Här får unga konstnärer möjlighet att skapa och visa upp sin konst i ett tillåtande och inspirerande miljö.",
-            model: "assets/Flower1.glb",
-            image: "https://via.placeholder.com/600x400",
-            credits: "Linda Hjert, Mika Hyvönen, Tyra Östlund",
+            title: "Tindra Grafittipark",
+            gid: 4,
+            html: `
+                    <img src="assets/4/tindragrafittipark1.jpg" />
+                    <img src="assets/4/tindragrafittipark2.jpg" />
+                    <img src="assets/4/tindragrafittipark3.jpg" />
+                    <p><strong>Credits:</strong>Linda Hjert, Mika Hyvönen, Tyra Östlund</p>
+                `,
         },
         {
-            title: "Lidingöbron",
-            description:
-                "Lidingöbron är en central del av infrastrukturen på Lidingö. Denna vision fokuserar på att modernisera bron för att göra den säkrare och mer miljövänlig.",
-            model: "assets/Tree.glb",
-            image: "https://via.placeholder.com/600x400",
-            credits: "Malte Lundberg, Phoebe Crookes, Ida Ädling",
+            title: "Gåshaxa x Elfvik",
+            gid: 5,
+            html: `
+                    <p>Lidingö är rikt på natur och sevärdheter, dessa ligger dock långt ifrån varandra och kräver bil för att ta sig emellan. Detta projekt syftar till att knyta ihop sundet mellan Gåshaga och  Elfvik, såväl geografiskt som socialt. Med inspiration av skärgården och närliggande bebyggelse har vi formgivit en ögrupp med broar som aktiverar och leder besökarna över sundet.</p>
+                    <p><strong>Credits:</strong>Felix Elofsson, Molly Schedin, Wilma Reichardt</p>
+                `,
         },
         {
-            title: "Fountain Next Level",
-            description:
-                "Fountain Next Level är en modern fontäninstallation som kombinerar vatten, ljus och konst för att skapa en visuell upplevelse på Lidingö.",
-            model: "assets/Tree2.glb",
-            image: "https://via.placeholder.com/600x400",
-            credits: "Felix Elofsson, Molly Schedin, Wilma Reichardt",
+            title: "Fountain",
+            gid: 6,
+            html: `
+                    <p>Utifrån stadshusets nuvarande arkitektur arbetar vi med en lösning som passar in utan att ta över. Den nya fontänen ska bli en naturlig del av platsen, samtidigt som den tillför något nytt och gör stadshuset mer relevant och inbjudande för människorna som vistas i området.</p>
+                    <p>Hur förändrar man uppfattningen om en byggnad utan att riva den? Många Lidingöbor upplever att stadshusets utseende inte passar in i den idylliska miljö de förknippar med ön, och vi ser istället möjligheten att förbättra platsen genom att lyfta fram dess omgivning.</p>
+                    <img src="assets/6/fountain1.jpg" />
+                    <img src="assets/6/fountain2.jpg" />
+                    <img src="assets/6/fountain3.jpg" />
+                    <img src="assets/6/fountain4.jpg" />
+                    <img src="assets/6/fountain5.jpg" />
+                    <img src="assets/6/fountain6.jpg" />
+                    <p><strong>Credits:</strong> Daniel Trewe, Ella Farestam, Linn Sehlstedt</p>
+                `,
         },
         {
-            title: "Konst på Lidingöbanan",
-            description:
-                "Konst på Lidingöbanan är ett projekt som syftar till att försköna stationerna och tågen med konstverk som återspeglar Lidingös identitet.",
-            model: "assets/Tree3.glb",
-            image: "https://via.placeholder.com/600x400",
-            credits: "Daniel Trewe ,Ella Farestam, Linn Sehlstedt",
+            title: "Ett spår av konst",
+            gid: 7,
+            html: `
+                    <p>Med utgångspunkt från Lidingös historia och aktiviteter vill vi lysa upp varje station längst med lidingöbanan med konst. </p>
+                    <p>Tunnelbanan är världens längsta konstutställning som lockar många turister och besökare, konsten är väldigt uppskattad av de som åker tunnelbanan och bidrar med kulturella intryck. Motivationen till tunnelbanans konst var att alla har rätt till att se konst och det tycker vi lidingöborna också har. Genom att skapa konst längst med lidingöbanan så kanske man får folk att vilja åka ut till Lidingö för att se på den, och världens längsta konstustställning blir ännu längre. Vi tror även att de som bor på Lidingö och åker lidingöbanan varje dag kommer uppskatta något som lyser upp och bryter av från omgivningen.</p>
+                    <p>Våran modell är byggd av MDF som vi har målat och spacklat för att få en organisk textur. Vi har byggt en minimodell av hur ett konstverk på Kottla Station hade kunnat se ut.</p>
+                    <img src="assets/7/ettsparavkonst1.jpg" />
+                    <img src="assets/7/ettsparavkonst2.jpg" />
+                    <img src="assets/7/ettsparavkonst3.jpg" />
+                    <img src="assets/7/ettsparavkonst4.jpg" />
+                    <img src="assets/7/ettsparavkonst5.jpg" />
+                    <img src="assets/7/ettsparavkonst6.jpg" />
+                    <img src="assets/7/ettsparavkonst7.jpg" />
+                    <img src="assets/7/ettsparavkonst8.jpg" />
+                    <img src="assets/7/ettsparavkonst9.jpg" />
+                    <img src="assets/7/ettsparavkonst10.jpg" />
+                    <img src="assets/7/ettsparavkonst11.jpg" />
+                    <p><strong>Credits:</strong>Malte Lundberg, Phoebe Crookes, Ida Ädling</p>
+                `,
         },
         {
             title: "Vindarnas Tempel",
-            description:
-                "Vindarnas Tempel är ett utrymme för reflektion och kontemplation, designat för att fånga väder och vind som en del av upplevelsen på Lidingö.",
-            model: "assets/tulip 3.glb",
-            image: "https://via.placeholder.com/600x400",
-            credits: "Celine Skolleborg, Bobby Rahman, Hanna Hedberg",
+            gid: 8,
+            html: `
+                    <h2>Koncept</h2>
+                    <p>Med utgångspunkt från Lidingös historia och aktiviteter vill vi lysa upp varje station längst med lidingöbanan med konst. </p>
+                    <h2>Problemformulering</h2>
+                    <p>Tunnelbanan är världens längsta konstutställning som lockar många turister och besökare, konsten är väldigt uppskattad av de som åker tunnelbanan och bidrar med kulturella intryck. Motivationen till tunnelbanans konst var att alla har rätt till att se konst och det tycker vi lidingöborna också har. Genom att skapa konst längst med lidingöbanan så kanske man får folk att vilja åka ut till Lidingö för att se på den, och världens längsta konstustställning blir ännu längre. Vi tror även att de som bor på Lidingö och åker lidingöbanan varje dag kommer uppskatta något som lyser upp och bryter av från omgivningen.</p>
+                    <p>Våran modell är byggd av MDF som vi har målat och spacklat för att få en organisk textur. Vi har byggt en minimodell av hur ett konstverk på Kottla Station hade kunnat se ut.</p>
+                    <img src="assets/8/vindarnastempel1.png" />
+                    <img src="assets/8/vindarnastempel2.png" />
+                    <img src="assets/8/vindarnastempel3.png" />
+                `,
         },
     ];
 
-    // Shuffle projects array
-    projects.sort(() => Math.random() - 0.5);
+    const grid = document.querySelector(".grid");
+    const fullscreen = document.getElementById("fullscreen");
+    const fullscreenTitle = document.getElementById("fullscreenTitle");
+    const fullscreenContent = document.getElementById("fullscreenContent");
+    const modelContainer = document.getElementById("modelContainer");
 
-    const grid = document.getElementById("grid");
-    const colors = [
-        "#FFB6C1",
-        "#ADD8E6",
-        "#98FB98",
-        "#FFD700",
-        "#FFDEAD",
-        "#AFEEEE",
-        "#E6E6FA",
-        "#FFE4E1",
-    ];
-
-    // Randomize the color for the center cell
-    const centerCell = document.querySelector(".cell.center");
-    centerCell.style.setProperty("--bg-color", "#ffffff");
-
-    // Add shuffled projects to the grid (skip the center cell)
+    // Generate grid dynamically
     projects.forEach((project, index) => {
+        const path = project.gid;
+        const modelPath = `assets/${path}/model.glb`;
+        const environmentImagePath = `assets/${path}/environment.jpg`;
+        const skyboxImagePath = `assets/${path}/skybox.jpg`;
+
         const cell = document.createElement("div");
         cell.classList.add("cell");
-        cell.style.setProperty(
-            "--bg-color",
-            colors[Math.floor(Math.random() * colors.length)]
-        );
-        cell.setAttribute("data-title", project.title);
-        cell.setAttribute("data-description", project.description);
-        cell.setAttribute("data-image", project.image);
-        cell.setAttribute("data-credits", project.credits);
+        cell.setAttribute("data-index", index); // Use index to reference the project
+        cell.setAttribute("data-title", project.title); // Use index to reference the project
 
         const modelViewer = document.createElement("model-viewer");
-        modelViewer.setAttribute("src", project.model);
+        modelViewer.setAttribute("src", modelPath);
         modelViewer.setAttribute("auto-rotate", true);
         modelViewer.setAttribute("preload", true);
-        modelViewer.setAttribute("reveal-when-loaded", true);
-        modelViewer.setAttribute("controls", true);
-        modelViewer.setAttribute("background-color", "transparent");
+        modelViewer.setAttribute("disable-pan", true);
+        modelViewer.setAttribute("camera-controls", true);
+        modelViewer.setAttribute("max-camera-orbit", "auto 90deg auto");
+        //modelViewer.setAttribute("environment-image", environmentImagePath);
+        modelViewer.setAttribute("interaction-prompt", "none");
+        modelViewer.setAttribute("shadow-intensity", "2");
+        modelViewer.setAttribute("skybox-height", "1.5m");
+        modelViewer.setAttribute("skybox-image", skyboxImagePath);
         modelViewer.setAttribute("style", "--poster-color: transparent;");
-        modelViewer.style.width = "80%";
-        modelViewer.style.height = "80%";
 
         cell.appendChild(modelViewer);
         grid.appendChild(cell);
     });
 
-    const fullscreen = document.getElementById("fullscreen");
-    const floatingTitle = document.getElementById("floatingTitle");
-    const modelContainer = document.getElementById("modelContainer");
-    const fullscreenTitle = document.getElementById("fullscreenTitle");
-    const fullscreenText = document.getElementById("fullscreenText");
-    const fullscreenImage = document.getElementById("fullscreenImage");
-    const creditsText = document.getElementById("creditsText");
-
-    // Handle click on grid cells
+    // Show fullscreen on cell click
     grid.addEventListener("click", (e) => {
         const cell = e.target.closest(".cell");
-        if (cell && !cell.classList.contains("center")) {
-            const title = cell.getAttribute("data-title");
-            const description = cell.getAttribute("data-description");
-            const image = cell.getAttribute("data-image");
-            const credits = cell.getAttribute("data-credits");
-            const modelViewer = cell.querySelector("model-viewer");
-
-            fullscreenTitle.textContent = title;
-            fullscreenText.textContent = description;
-            fullscreenImage.src = image;
-            fullscreenImage.style.display = "block";
-            creditsText.textContent = credits;
-
-            // Clone the model-viewer element to maintain state
-            const newModelViewer = modelViewer.cloneNode(true);
-            newModelViewer.setAttribute("style", "width: 100%; height: 100%;");
-            modelContainer.innerHTML = "";
-            modelContainer.appendChild(newModelViewer);
+        if (cell) {
+            e;
+            const index = parseInt(cell.getAttribute("data-index"), 10);
+            const project = projects[index];
 
             fullscreen.style.display = "flex";
+            fullscreenTitle.textContent = project.title || "";
+            fullscreenContent.innerHTML = project.html || "";
+
+            // Replace the model-viewer in the fullscreen model container
+            modelContainer.innerHTML = "";
+            const modelViewer = cell.querySelector("model-viewer");
+            modelViewer.setAttribute("ar", true);
+            modelViewer.setAttribute("ar-modes", "scene-viewer quick-look");
+            if (modelViewer) {
+                const clonedViewer = modelViewer.cloneNode(true);
+                clonedViewer.style.width = "100%";
+                clonedViewer.style.height = "100%";
+                modelContainer.appendChild(clonedViewer);
+            }
         }
     });
 
-    // Handle click on floating title to close fullscreen
-    floatingTitle.addEventListener("click", () => {
+    // Close fullscreen by clicking on the title
+    fullscreenTitle.addEventListener("click", () => {
         fullscreen.style.display = "none";
         modelContainer.innerHTML = "";
+    });
+
+    // Close fullscreen on ESC key
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            fullscreen.style.display = "none";
+            modelContainer.innerHTML = "";
+        }
+    });
+
+    // Prevent grid click functionality when in fullscreen mode
+    fullscreen.addEventListener("click", (e) => {
+        if (e.target === fullscreen) {
+            fullscreen.style.display = "none";
+            modelContainer.innerHTML = "";
+        }
     });
 });
