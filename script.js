@@ -136,9 +136,21 @@ document.addEventListener("DOMContentLoaded", () => {
         modelViewer.setAttribute("interaction-prompt", "none");
         modelViewer.setAttribute("shadow-intensity", "2");
         modelViewer.setAttribute("skybox-height", "1.5m");
-        modelViewer.setAttribute("disable-quick-look", true);
+        // modelViewer.setAttribute("disable-quick-look", true);
         // modelViewer.setAttribute("skybox-image", skyboxImagePath);
         modelViewer.setAttribute("style", "--poster-color: transparent;");
+
+
+// Access the shadow root
+const shadowRoot = modelViewer.shadowRoot;
+
+// Find the #default-poster inside the shadow root
+const defaultPoster = shadowRoot.querySelector('#default-poster');
+
+// Apply styles to the #default-poster
+if (defaultPoster) {
+  defaultPoster.style.backgroundSize = 'cover'; // Changes from 'contain' to 'cover'
+}
 
         cell.appendChild(modelViewer);
         grid.appendChild(cell);
@@ -160,8 +172,8 @@ document.addEventListener("DOMContentLoaded", () => {
             modelContainer.innerHTML = "";
             const modelViewer = cell.querySelector("model-viewer");
             modelViewer.setAttribute("src", modelViewer.getAttribute("data-src"));
-            //modelViewer.setAttribute("ar", true);
-            //modelViewer.setAttribute("ar-modes", "scene-viewer quick-look");
+            modelViewer.setAttribute("ar", true);
+            modelViewer.setAttribute("ar-modes", "scene-viewer quick-look");
             if (modelViewer) {
                 const clonedViewer = modelViewer.cloneNode(true);
                 clonedViewer.style.width = "100%";
