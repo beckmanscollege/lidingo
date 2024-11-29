@@ -79,6 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <img src="assets/6/fountain4.jpg" />
                     <img src="assets/6/fountain5.jpg" />
                     <img src="assets/6/fountain6.jpg" />
+                    <img src="assets/6/fountain7.jpg" />
+                    <img src="assets/6/fountain8.jpg" />
+                    <img src="assets/6/fountain9.jpg" />
+                    <img src="assets/6/fountain10.jpg" />
                     <h3>Arbetsgrupp</h3>
                     <p>Daniel Trewe, Ella Farestam, Linn Sehlstedt</p>
                 `,
