@@ -49,12 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 `,
         },
         {
-            title: "Tindra Grafittipark",
+            title: "Tindra",
             gid: 4,
             html: `
-                    <img src="assets/4/tindragrafittipark1.jpg" />
-                    <img src="assets/4/tindragrafittipark2.jpg" />
-                    <img src="assets/4/tindragrafittipark3.jpg" />
+                    <p>I det övergivna och nedklottrade Tindrahusets plats ska vi upprätta Tindra graffitipark. Parken ska vara ett levande galleri i konstant förändring, som hyllar Tindrahusets nuvarande roll som canvas för klotter. Projektet innefattar även en informationsskylt samt en hemsida där graffitin dokumenteras.</p>
+                    <p>Tindrahuset är i mycket dåligt skick, anses vara en otrygg plats och ska rivas – men samtidigt är det kulturellt värdefullt. Graffitiparken hyllar husets historia och agerar som en alternativ mötesplats, annorlunda från Lidingös villaområden och fotbollsplaner.</p>
+                    <p>Vi designar parkens upplägg och hemsidans gränssnitt utifrån koncept. Modellbygge sker i kartong och spackel, som sedan slipas och målas för att efterlikna betong. Ett komplementerande element blir en skärm som visar hemsidan, samt en informationsskylt i verklig skala, som följer samma estetik som parken.</p>
+                    <img src="assets/4/tindra1.jpg" />
+                    <img src="assets/4/tindra2.jpg" />
+                    <img src="assets/4/tindra3.jpg" />
                     <h3>Arbetsgrupp</h3>
                     <p>Linda Hjert, Mika Hyvönen, Tyra Östlund</p>
                 `,

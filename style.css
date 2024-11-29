@@ -30,6 +30,11 @@ html {
     overflow: hidden; /* Hide the zoomed-in content outside the cell */
 }
 
+.cell:not(.center){
+
+  filter:grayscale(1) contrast(0.5) sepia(1);
+}
+
 .cell.center {
     cursor: default;
     font-size: 2em;
