@@ -156,125 +156,127 @@ document.addEventListener("DOMContentLoaded", () => {
     const fullscreenContent = document.getElementById("fullscreenContent");
     const modelContainer = document.getElementById("modelContainer");
 
-    function isDesktop() {
-        return !/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone|webOS/i.test(
+    /**
+     * Determines if the device is desktop based on user agent.
+     */
+    const isDesktop = () =>
+        !/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone|webOS/i.test(
             navigator.userAgent
         );
-    }
 
-    // Generate grid dynamically
-    projects.forEach((project, index) => {
-        const path = project.gid;
-        const modelPath = `assets/${path}/model.glb`;
-        const posterPath = `assets/${path}/poster.jpg`;
-        const environmentImagePath = `assets/${path}/environment.jpg`;
-        const skyboxImagePath = `assets/${path}/skybox.jpg`;
+    /**
+     * Generates a Google Maps link for given longitude and latitude.
+     */
+    const generateGoogleMapsLink = (lon, lat) =>
+        `https://www.google.com/maps?q=${lat},${lon}&z=15`;
 
-        const cell = document.createElement("div");
-        cell.classList.add("cell");
-        cell.setAttribute("data-index", index); // Use index to reference the project
-        cell.setAttribute("data-title", project.title); // Use index to reference the project
-
-        const modelViewer = document.createElement("model-viewer");
-       
-        if (isDesktop()) {
-            modelViewer.setAttribute("src", modelPath);
-        } else {
-            modelViewer.setAttribute("data-src", modelPath);
-            modelViewer.setAttribute("poster", posterPath);
-        }
-        modelViewer.setAttribute("auto-rotate", true);
-        modelViewer.setAttribute("preload", true);
-        modelViewer.setAttribute("disable-pan", true);
-        modelViewer.setAttribute("max-camera-orbit", "auto 90deg auto");
-        // modelViewer.setAttribute("environment-image", environmentImagePath);
-        modelViewer.setAttribute("interaction-prompt", "none");
-        modelViewer.setAttribute("shadow-intensity", "2");
-        modelViewer.setAttribute("skybox-height", "1.5m");
-        // modelViewer.setAttribute("disable-quick-look", true);
-        // modelViewer.setAttribute("skybox-image", skyboxImagePath);
-        modelViewer.setAttribute("style", "--poster-color: transparent;");
-
-        if (project.flip) {
-            //modelViewer.setAttribute("orientation", "0 45deg 90deg");
+    /**
+     * Opens a project in fullscreen view based on its ID and updates the hash.
+     */
+    const openProjectById = (projectId) => {
+        const project = projects.find((p) => p.gid === projectId);
+        if (!project) {
+            console.error(`Project with ID ${projectId} not found.`);
+            return;
         }
 
-        // Access the shadow root
-        const shadowRoot = modelViewer.shadowRoot;
+        // Update hash in the URL
+        window.history.pushState(null, "", `#${projectId}`);
 
-        // Find the #default-poster inside the shadow root
-        const defaultPoster = shadowRoot.querySelector("#default-poster");
-
-        // Apply styles to the #default-poster
-        if (defaultPoster) {
-            defaultPoster.style.backgroundSize = "cover"; // Changes from 'contain' to 'cover'
-        }
-
-        cell.appendChild(modelViewer);
-        grid.appendChild(cell);
-    });
-
-    function generateGoogleMapsLink(longitude, latitude) {
-        return `https://www.google.com/maps?q=${latitude},${longitude}&z=15`;
-    }
-
-    // Show fullscreen on cell click
-    grid.addEventListener("click", (e) => {
-        const cell = e.target.closest(".cell");
-        if (cell) {
-            const index = parseInt(cell.getAttribute("data-index"), 10);
-            const project = projects[index];
-
-            fullscreen.style.display = "flex";
-            fullscreenTitle.textContent = project.title || "";
-            fullscreenContent.innerHTML = `<a href="${generateGoogleMapsLink(
+        fullscreen.style.display = "flex";
+        fullscreenTitle.textContent = project.title || "Untitled";
+        fullscreenContent.innerHTML = `
+            <a href="${generateGoogleMapsLink(
                 project.lon,
                 project.lat
-            )}" target="_blank">${project.lon}, ${project.lat}</a>`;
-            fullscreenContent.innerHTML += project.html || "";
+            )}" target="_blank">
+                ${project.lat}, ${project.lon}
+            </a>
+        `;
+        fullscreenContent.innerHTML += project.html || "";
 
-            // Replace the model-viewer in the fullscreen model container
-            modelContainer.innerHTML = "";
-            const modelViewer = cell.querySelector("model-viewer");
-            if (isDesktop()) {
-            } else {
-                modelViewer.setAttribute("poster", "");
-                modelViewer.setAttribute(
-                    "src",
-                    modelViewer.getAttribute("data-src")
-                );
-            }
-            modelViewer.setAttribute("camera-controls", true);
-            modelViewer.setAttribute("ar", true);
-            modelViewer.setAttribute("ar-modes", "scene-viewer quick-look");
-            if (modelViewer) {
-                const clonedViewer = modelViewer.cloneNode(true);
-                clonedViewer.style.width = "100%";
-                clonedViewer.style.height = "100%";
-                modelContainer.appendChild(clonedViewer);
-            }
-        }
-    });
+        modelContainer.innerHTML = ""; // Clear previous model
+        const modelViewer = document.createElement("model-viewer");
+        modelViewer.setAttribute("src", `assets/${project.gid}/model.glb`);
+        modelViewer.setAttribute("auto-rotate", true);
+        modelViewer.setAttribute("preload", true);
+        modelViewer.setAttribute("camera-controls", true);
+        modelViewer.style.width = "100%";
+        modelViewer.style.height = "100%";
+        modelContainer.appendChild(modelViewer);
+    };
 
-    // Close fullscreen by clicking on the title
-    fullscreenTitle.addEventListener("click", () => {
+    /**
+     * Initializes the grid with project cells.
+     */
+    const initializeGrid = () => {
+        projects.forEach((project, index) => {
+            const cell = document.createElement("div");
+            cell.classList.add("cell");
+            cell.setAttribute("data-index", index);
+
+            const modelViewer = document.createElement("model-viewer");
+            modelViewer.setAttribute(
+                "src",
+                isDesktop()
+                    ? `assets/${project.gid}/model.glb`
+                    : `assets/${project.gid}/poster.jpg`
+            );
+            modelViewer.setAttribute("auto-rotate", true);
+            modelViewer.setAttribute("preload", true);
+            // modelViewer.setAttribute("skybox-image", `assets/${project.gid}/skybox.jpg`);
+
+            cell.appendChild(modelViewer);
+            grid.appendChild(cell);
+
+            cell.addEventListener("click", () => openProjectById(project.gid));
+        });
+    };
+
+    /**
+     * Handles fullscreen close actions and clears the hash.
+     */
+    const closeFullscreen = () => {
         fullscreen.style.display = "none";
-        modelContainer.innerHTML = "";
-    });
+        modelContainer.innerHTML = ""; // Clear the model viewer
+        window.history.pushState(null, "", window.location.pathname); // Remove the hash
+    };
 
-    // Close fullscreen on ESC key
+    // Event Listeners
+    fullscreenTitle.addEventListener("click", closeFullscreen);
     document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            fullscreen.style.display = "none";
-            modelContainer.innerHTML = "";
-        }
+        if (e.key === "Escape") closeFullscreen();
     });
 
-    // Prevent grid click functionality when in fullscreen mode
-    fullscreen.addEventListener("click", (e) => {
-        if (e.target === fullscreen) {
-            fullscreen.style.display = "none";
-            modelContainer.innerHTML = "";
+    // Handle URL hash to open project automatically
+    const hash = window.location.hash;
+    if (hash) {
+        const projectId = parseInt(hash.replace("#", ""), 10);
+        if (!isNaN(projectId)) openProjectById(projectId);
+    }
+
+    // Initialize the grid on page load
+    initializeGrid();
+
+    const getRandomColor = () => {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
         }
-    });
+        return color;
+    };
+
+    /**
+     * Applies a random background color to each cell.
+     */
+    const applyRandomBackgroundColors = () => {
+        const cells = document.querySelectorAll(".cell");
+        cells.forEach((cell) => {
+            const randomColor = getRandomColor();
+            cell.style.setProperty("--bg-color", randomColor);
+        });
+    };
+    
+    applyRandomBackgroundColors();
 });
