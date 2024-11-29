@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <img src="assets/1/astreakulturhus3.jpg" />
                     <img src="assets/1/astreakulturhus4.jpg" />
                     <img src="assets/1/astreakulturhus5.jpg" />
-                    <img src="assets/1/astreakulturhus6.jpg" /
+                    <img src="assets/1/astreakulturhus6.jpg" />
                     <p><strong>Credits:</strong>Iris Berglund, Stephanie Holmén, Olle Svensson</p>
                 `,
         },
