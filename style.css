@@ -31,8 +31,7 @@ html {
 }
 
 .cell:not(.center){
-
-  filter:grayscale(1) contrast(0.5) sepia(1);
+  /* filter:grayscale(1) contrast(0.5) sepia(1); */
 }
 
 .cell.center {
