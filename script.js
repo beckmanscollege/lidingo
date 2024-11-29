@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p>Optiktornet MinusEtt är en mötesplats för Lidingös konst- och designskolor i det övergivna Optiktornet och bergrummet i AGA. Här kan studenter och allmänhet samlas för utställningar och evenemang, vilket ger Lidingö en ny, spännande plats som lockar en ung, kreativ målgrupp.</p>
                     <p>Lidingö har länge varit känt som en exklusiv, anrik och naturnära plats för familjer och äldre, men saknar en tydlig mötesplats för yngre konstnärer och designers. Trots att flera konst- och designskolor finns på ön, är kontakten mellan studenterna bristfällig. Vi vill därför skapa en gemensam plats där de kan samlas, knyta kontakter och visa upp sina projekt.</p>
                     <p>Optiktornet MinusEtt ägs gemensamt av Lidingös konst- och designskolor och drivs av skolornas alumner. Skandia Fastigheter och Lidingö Kommun har bidragit med lokaler för att främja konst, attrahera yngre målgrupper och stärka sitt varumärke. Optiktornet och bergrummet renoveras för att rymma en bar och säkra utställningslokaler. Verksamheten finansieras genom försäljning, sponsorer och bidrag. Skolorna ansvarar för lokalerna, alumner för driften, och studenter arrangerar evenemang. Via Optiktornet MinusEtt's hemsida kan allmänheten följa aktiviteter och studenter boka utställningar.</p>
-                    <img src="assets/2/optiktornetminusett.jpg" />
+                    <img src="assets/2/optiktornetminusett1.jpg" />
                     <h3>Arbetsgrupp</h3>
                     <p>Lina Johansson, Olle Ljung, Edda Eliasson</p>
                 `,
