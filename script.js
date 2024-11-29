@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
             html: `
                     <p>Astrea kulturhus byggs ovanpå en stor parkeringsplats mitt i centrum, där hantverk, kreativitet och möten är i fokus. Här finns verkstäder med specialutrustning för keramik, screentryck och musikstudio, samt ett café och utrymme för evenemang som marknader och spelningar.</p>
                     <p>Lidingö saknar en kulturell samlingsplats för alla kreativa och skapande människor på ön. Vi ville skapa en plats som erbjuder just detta, med ett specifikt fokus på unga men också den breda allmänheten. Astrea har ett utbud av verkstäder som möjliggör konstnärligt skapande. Ett nytt kulturhus tror vi  skulle stärka gemenskapen, inkludera fler och berika kulturlivet på ön.</p>
-                    <p>Modellen är byggd av laserskurna MDF skivor. Vi har sedan målat och spraymålat allt. Som en del av presentationen presenterar vi även materialprover samt skyltsystem i förminskad skala. 4 olika affischer har formgivigts för verksamheten som komminicerar Astreas utbud. Vi har även 3d-scannat modellen för att kunna presentera den digitalt.</p>
                     <img src="assets/1/astreakulturhus1.jpg" />
                     <img src="assets/1/astreakulturhus2.jpg" />
                     <img src="assets/1/astreakulturhus3.jpg" />
@@ -50,8 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
             lat: 59.383096,
             html: `
                     <p>På gränsens mellan norra och södra Sticklinge på Lidingö lanseras ett projekt för att antingen stärka grannskapets gemenskap - eller belysa en bristande sammanhållning i området.</p>
-                    <p>"Ryktet om Lidingöborna som självupptagna översittare har orsakat både osämja och dålig självbild bland Lidingöborna själva, och för att öns rykte ska kunna räddas så måste det ske en förändring inifrån och ut.</p>
-                    <p>"En dag så dyker det upp ett litet, portabelt växthus mitt i grannskapet. Det finns ingen tydlig avsändare eller en uttalad person som ska sköta om den. Ansvaret att hålla växten vid liv faller på samhället - för att växten ska må bra och skötas om så kommer Lidingöborna behöva samarbeta. Projektet skulle kunna se ut på olika sätt, antingen kan växthuset färdas mellan olika områden på Lidingö som en stafett, och bli ett gemensamt ansvar för hela ön, eller så kan respektive område få en egen växt.</p>
+                    <p>Ryktet om Lidingöborna som självupptagna översittare har orsakat både osämja och dålig självbild bland Lidingöborna själva, och för att öns rykte ska kunna räddas så måste det ske en förändring inifrån och ut.</p>
+                    <p>En dag så dyker det upp ett litet, portabelt växthus mitt i grannskapet. Det finns ingen tydlig avsändare eller en uttalad person som ska sköta om den. Ansvaret att hålla växten vid liv faller på samhället - för att växten ska må bra och skötas om så kommer Lidingöborna behöva samarbeta. Projektet skulle kunna se ut på olika sätt, antingen kan växthuset färdas mellan olika områden på Lidingö som en stafett, och bli ett gemensamt ansvar för hela ön, eller så kan respektive område få en egen växt.</p>
                     <img src="assets/3/viveka1.jpg" />
                     <img src="assets/3/viveka2.jpg" />
                     <img src="assets/3/viveka3.jpg" />

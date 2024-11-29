@@ -124,7 +124,7 @@ model-viewer {
 
 .text-container {
     width: 50%;
-    padding: 2rem;
+    padding: 1rem;
     box-sizing: border-box;
     overflow-y: auto;
     font-family: "Open Sans", sans-serif;
