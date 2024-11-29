@@ -125,11 +125,11 @@ document.addEventListener("DOMContentLoaded", () => {
         modelViewer.setAttribute("disable-pan", true);
         modelViewer.setAttribute("camera-controls", true);
         modelViewer.setAttribute("max-camera-orbit", "auto 90deg auto");
-        modelViewer.setAttribute("environment-image", environmentImagePath);
+        // modelViewer.setAttribute("environment-image", environmentImagePath);
         modelViewer.setAttribute("interaction-prompt", "none");
         modelViewer.setAttribute("shadow-intensity", "2");
         modelViewer.setAttribute("skybox-height", "1.5m");
-        modelViewer.setAttribute("skybox-image", skyboxImagePath);
+        // modelViewer.setAttribute("skybox-image", skyboxImagePath);
         modelViewer.setAttribute("style", "--poster-color: transparent;");
 
         cell.appendChild(modelViewer);
