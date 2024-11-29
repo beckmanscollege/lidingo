@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     <img src="assets/1/astreakulturhus4.jpg" />
                     <img src="assets/1/astreakulturhus5.jpg" />
                     <img src="assets/1/astreakulturhus6.jpg" />
+                    <img src="assets/1/astreakulturhus7.jpg" />
+                    <img src="assets/1/astreakulturhus8.jpg" />
+                    <img src="assets/1/astreakulturhus9.jpg" />
                     <h3>Arbetsgrupp</h3>
                     <p>Iris Berglund, Stephanie Holmén, Olle Svensson</p>
                 `,
