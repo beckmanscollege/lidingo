@@ -151,8 +151,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // Replace the model-viewer in the fullscreen model container
             modelContainer.innerHTML = "";
             const modelViewer = cell.querySelector("model-viewer");
-            modelViewer.setAttribute("ar", true);
-            modelViewer.setAttribute("ar-modes", "scene-viewer quick-look");
+            //modelViewer.setAttribute("ar", true);
+            //modelViewer.setAttribute("ar-modes", "scene-viewer quick-look");
             if (modelViewer) {
                 const clonedViewer = modelViewer.cloneNode(true);
                 clonedViewer.style.width = "100%";
