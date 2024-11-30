@@ -216,12 +216,24 @@ document.addEventListener("DOMContentLoaded", () => {
             cell.setAttribute("data-index", index);
 
             const modelViewer = document.createElement("model-viewer");
-            modelViewer.setAttribute(
-                "src",
-                isDesktop()
-                    ? `assets/${project.gid}/model.glb`
-                    : `assets/${project.gid}/poster.jpg`
-            );
+
+            if (isDesktop()) {
+                modelViewer.setAttribute(
+                    "src",
+                    `assets/${project.gid}/model.glb`
+                );
+            } else {
+                const shadowRoot = modelViewer.shadowRoot;
+                // Find the #default-poster element inside the shadow root
+                const defaultPoster =
+                    shadowRoot.querySelector("#default-poster");
+                // Apply custom styles to the default poster
+                defaultPoster.style.backgroundSize = "cover";
+                modelViewer.setAttribute(
+                    "poster",
+                    `assets/${project.gid}/poster.jpg`
+                );
+            }
             modelViewer.setAttribute("auto-rotate", true);
             modelViewer.setAttribute("preload", true);
             // modelViewer.setAttribute("skybox-image", `assets/${project.gid}/skybox.jpg`);
@@ -259,8 +271,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initializeGrid();
 
     const getRandomColor = () => {
-        const letters = '0123456789ABCDEF';
-        let color = '#';
+        const letters = "0123456789ABCDEF";
+        let color = "#";
         for (let i = 0; i < 6; i++) {
             color += letters[Math.floor(Math.random() * 16)];
         }
@@ -277,6 +289,6 @@ document.addEventListener("DOMContentLoaded", () => {
             cell.style.setProperty("--bg-color", randomColor);
         });
     };
-    
+
     applyRandomBackgroundColors();
 });
